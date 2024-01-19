@@ -21,14 +21,14 @@
         $filmy = array(
             "Skazani na Shawshank" => "dramat",
             "Nietykalni" => "biograficzny",
-            "Władca Pierścieni: Powrót króla" => " fantasy",
-            "Pulp Fiction" => " gangsterski",
-            "Siedem" => " kryminał",
-            "Podziemny krąg" => " thriller",
-            "Django" => " western",
-            "Król Lew" => " animacja",
-            "Avengers: Wojna bez granic" => " akcja",
-            "Dobry, zły i brzydki" => " western"
+            "Władca Pierścieni: Powrót króla" => "fantasy",
+            "Pulp Fiction" => "gangsterski",
+            "Siedem" => "kryminał",
+            "Podziemny krąg" => "thriller",
+            "Django" => "western",
+            "Król Lew" => "animacja",
+            "Avengers: Wojna bez granic" => "akcja",
+            "Dobry, zły i brzydki" => "western"
         );
 
         print_r($filmy);
