@@ -20,7 +20,7 @@
             <legend>Alfabet</legend>
             <?php
                 foreach (range("a", "z") as $lit) {
-                    echo "<input type='checkbox' name='numbers[]' id='$lit' value='$lit' ".
+                    echo "<input type='checkbox' name='letters[]' id='$lit' value='$lit' ".
                         (isset($_POST["letters"]) && in_array($lit, $_POST["letters"]) ? "checked" : "").
                         "><label for='$lit'>$lit</label>";
                 }
@@ -30,8 +30,8 @@
             <input type="submit" value="Wybierz">
             <p>
                 <?php
-                    if(isset($_POST["numbers"]) && count($_POST["numbers"]) != 0) {
-                        echo "Te litery zostały wybrane: ".implode(", ", $_POST["numbers"]).".";
+                    if(isset($_POST["letters"]) && count($_POST["letters"]) != 0) {
+                        echo "Te litery zostały wybrane: ".implode(", ", $_POST["letters"]).".";
                     } else {
                         echo "Żadna litera nie została wybrana";
                     }
