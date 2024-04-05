@@ -44,6 +44,8 @@
 
         $consent = $_POST["consent"] ?? false;
         $consent_error = $_SERVER['REQUEST_METHOD'] == "POST" && !$consent;
+
+        $form_valid = !($product_name_error || $packing_options_error || $package_weight_error || $contact_email_error || $additional_information_error || $consent_error);
     ?>
     <form action="" method="post">
         <label for="product_name">Nazwa towaru <span class="required">*</span></label><br>
@@ -57,19 +59,19 @@
         Wybierz opcje pakowania: <span class="required">*</span><br>
 
         <div <?= $packing_options_error ? "class='invalid'" : "" ?>>
-            <input type="checkbox" name="packing_options[]" id="pak-koperta" value="koperta">
+            <input type="checkbox" name="packing_options[]" id="pak-koperta" value="koperta" <?= in_array("koperta", $packing_options) ? "checked" : "" ?>>
             <label for="pak-koperta">koperta</label><br>
 
-            <input type="checkbox" name="packing_options[]" id="pak-folia" value="folia">
+            <input type="checkbox" name="packing_options[]" id="pak-folia" value="folia" <?= in_array("folia", $packing_options) ? "checked" : "" ?>>
             <label for="pak-folia">folia</label><br>
 
-            <input type="checkbox" name="packing_options[]" id="pak-folia-bab" value="f. bąbelkowa">
+            <input type="checkbox" name="packing_options[]" id="pak-folia-bab" value="f. bąbelkowa" <?= in_array("f. bąbelkowa", $packing_options) ? "checked" : "" ?>>
             <label for="pak-folia-bab">folia bąbelkowa</label><br>
 
-            <input type="checkbox" name="packing_options[]" id="pak-karton" value="karton">
+            <input type="checkbox" name="packing_options[]" id="pak-karton" value="karton" <?= in_array("karton", $packing_options) ? "checked" : "" ?>>
             <label for="pak-karton">karton</label><br>
 
-            <input type="checkbox" name="packing_options[]" id="pak-karton-uszt" value="k. z usztywnieniem">
+            <input type="checkbox" name="packing_options[]" id="pak-karton-uszt" value="k. z usztywnieniem" <?= in_array("k. z usztywnieniem", $packing_options) ? "checked" : "" ?>>
             <label for="pak-karton-uszt">karton z usztywnieniem</label>
         </div>
         <?php if($packing_options_error) { ?>
@@ -81,16 +83,16 @@
         Podaj wagę paczki: <span class="required">*</span><br>
 
         <div <?= $package_weight_error ? "class='invalid'" : "" ?>>
-            <input type="radio" name="package_weight" id="wag-do2" value="do2">
+            <input type="radio" name="package_weight" id="wag-do2" value="do2" <?= $package_weight == "do2" ? "checked" : "" ?>>
             <label for="wag-do2">do 2 kg</label><br>
 
-            <input type="radio" name="package_weight" id="wag-2do5" value="2do5">
+            <input type="radio" name="package_weight" id="wag-2do5" value="2do5" <?= $package_weight == "2do5" ? "checked" : "" ?>>
             <label for="wag-2do5">od 2 do 5 kg</label><br>
             
-            <input type="radio" name="package_weight" id="wag-5do10" value="5do10">
+            <input type="radio" name="package_weight" id="wag-5do10" value="5do10" <?= $package_weight == "5do10" ? "checked" : "" ?>>
             <label for="wag-5do10">od 5 do 10 kg</label><br>
 
-            <input type="radio" name="package_weight" id="wag-10do15" value="10do15">
+            <input type="radio" name="package_weight" id="wag-10do15" value="10do15" <?= $package_weight == "10do15" ? "checked" : "" ?>>
             <label for="wag-10do15">od 10 do 15 kg</label>
         </div>
         <?php if($package_weight_error) { ?>
@@ -115,7 +117,7 @@
         <br>
 
 
-        <input type="checkbox" name="consent" id="consent">
+        <input type="checkbox" name="consent" id="consent" <?= $consent ? "checked" : "" ?>>
         <label for="consent">Zgoda na przetwarzanie danych <span class="required">*</span></label><br>
         <?php if($consent_error) { ?>
             <span class="invalid-text">Potwierdź swoją zgodę</span><br>
@@ -123,6 +125,25 @@
 
 
         <input type="submit" value="Wyślij">
+
+        <?php
+        if($_SERVER['REQUEST_METHOD'] == "POST" && $form_valid) {
+            $filename = "formularz.txt";
+
+            $file = fopen($filename, "a");
+
+            $data = date("Y-m-d H:i:s") . "\n" . print_r($_POST, true);
+            fwrite($file, $data);
+
+            fclose($file);
+        ?>
+            <br>
+            <span class="invalid-text">
+                Dane z formularza zostały zapisane do pliku <?= $filename ?>
+            </span>
+        <?php
+        }
+        ?>
     </form>
 </body>
 </html>
