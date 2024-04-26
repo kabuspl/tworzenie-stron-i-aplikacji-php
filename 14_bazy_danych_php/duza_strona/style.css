@@ -1,0 +1,48 @@
+html, body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+    margin: 0;
+}
+
+.left {
+    flex: 0 0 20%;
+
+    background-color: lightblue;
+
+    a {
+        display: block;
+        color: #000;
+        text-decoration: none;
+        padding: 15px;
+    }
+
+    a:hover {
+        background-color: rgba(255,255,255,.4);
+    }
+}
+
+.right {
+    flex: 1;
+
+    padding: 20px;
+
+    background-color: aliceblue;
+}
+
+@media (max-width: 800px) {
+    body {
+        flex-direction: column;
+    }
+
+    .left {
+        flex: 0;
+    }
+}

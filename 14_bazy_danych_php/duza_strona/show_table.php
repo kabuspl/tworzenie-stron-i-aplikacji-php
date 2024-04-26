@@ -1,0 +1,1 @@
+<h1>Tabela <?=$_GET["table"]?></h1>
