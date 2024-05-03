@@ -9,12 +9,12 @@
 <body>
     <div class="left">
         <a href="?page=home">Strona główna</a>
-        <a href="?page=show_table&table=czytelnicy">Tabela czytelnicy</a>
-        <a href="?page=show_table&table=dzialy">Tabela działy</a>
-        <a href="?page=show_table&table=ksiazki">Tabela książki</a>
-        <a href="?page=show_table&table=pracownicy">Tabela pracownicy</a>
-        <a href="?page=show_table&table=stanowiska">Tabela stanowiska</a>
-        <a href="?page=show_table&table=wypozyczenia">Tabela wypożyczenia</a>
+        <a href="?page=show_table&table=Czytelnicy">Tabela czytelnicy</a>
+        <a href="?page=show_table&table=Dzialy">Tabela działy</a>
+        <a href="?page=show_table&table=Ksiazki">Tabela książki</a>
+        <a href="?page=show_table&table=Pracownicy">Tabela pracownicy</a>
+        <a href="?page=show_table&table=Stanowiska">Tabela stanowiska</a>
+        <a href="?page=show_table&table=Wypozyczenia">Tabela wypożyczenia</a>
     </div>
     <div class="right">
         <?php

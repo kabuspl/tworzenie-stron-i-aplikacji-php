@@ -12,7 +12,7 @@
             die("Próba połączenia z bazą danych zakończyła się niepowodzeniem. Błąd: " . $conn->connect_error);
         }
 
-        $result = $conn->query("SELECT UPPER(CONCAT(Imie, Nazwisko)) FROM ksiazki INNER JOIN dzialy ON ksiazki.Id_dzial = dzialy.Id_dzial");
+        $result = $conn->query("SELECT UPPER(CONCAT(Imie, Nazwisko)) FROM Ksiazki INNER JOIN Dzialy ON Ksiazki.Id_dzial = Dzialy.Id_dzial");
         while($row = $result->fetch_assoc()) {
     ?>
             "<?=$row["Tytul"]?>" - <?=$row["Imie"]?> <?=$row["Nazwisko"]?>, wydawnictwo <?=$row["Wydawnictwo"]?> (<?=$row["Miejsce_wyd"]?> <?=$row["Rok_wyd"]?>), <?=$row["Objetosc_ks"]?> str., Cena: <?=$row["Cena"]?>zł (dział: <?=$row["nazwa_dzialu"]?>).<br>
