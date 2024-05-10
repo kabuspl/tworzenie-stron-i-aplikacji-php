@@ -8,13 +8,16 @@
 </head>
 <body>
     <div class="left">
-        <a href="?page=home">Strona główna</a>
-        <a href="?page=show_table&table=Czytelnicy">Tabela czytelnicy</a>
-        <a href="?page=show_table&table=Dzialy">Tabela działy</a>
-        <a href="?page=show_table&table=Ksiazki">Tabela książki</a>
-        <a href="?page=show_table&table=Pracownicy">Tabela pracownicy</a>
-        <a href="?page=show_table&table=Stanowiska">Tabela stanowiska</a>
-        <a href="?page=show_table&table=Wypozyczenia">Tabela wypożyczenia</a>
+        <?php
+            $current_page = ($_GET["page"] ?? "home") . "-" . ($_GET["table"] ?? "");
+        ?>
+        <a class="<?= $current_page == "home-" ? "active" : "" ?>" href="?page=home">Strona główna</a>
+        <a class="<?= $current_page == "show_table-Czytelnicy" ? "active" : "" ?>" href="?page=show_table&table=Czytelnicy">Tabela czytelnicy</a>
+        <a class="<?= $current_page == "show_table-Dzialy" ? "active" : "" ?>" href="?page=show_table&table=Dzialy">Tabela działy</a>
+        <a class="<?= $current_page == "show_table-Ksiazki" ? "active" : "" ?>" href="?page=show_table&table=Ksiazki">Tabela książki</a>
+        <a class="<?= $current_page == "show_table-Pracownicy" ? "active" : "" ?>" href="?page=show_table&table=Pracownicy">Tabela pracownicy</a>
+        <a class="<?= $current_page == "show_table-Stanowiska" ? "active" : "" ?>" href="?page=show_table&table=Stanowiska">Tabela stanowiska</a>
+        <a class="<?= $current_page == "show_table-Wypozyczenia" ? "active" : "" ?>" href="?page=show_table&table=Wypozyczenia">Tabela wypożyczenia</a>
     </div>
     <div class="right">
         <?php
