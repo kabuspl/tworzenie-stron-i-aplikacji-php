@@ -28,18 +28,26 @@ Liczba wierszy: <?= $result->num_rows ?>
         <?php
         }
         ?>
+        <th>
+            <a href="?page=add_row&table=<?=$table?>">➕</a>
+        </th>
     </tr>
     <?php
     while($row = $result->fetch_assoc()) {
+        $row_id = null;
     ?>
     <tr>
         <?php
         foreach ($row as $key => $value) {
+            if(is_null($row_id)) $row_id = $value;
         ?>
             <td><?=$value?></td>
         <?php
         }
         ?>
+        <td>
+            <a href="?page=edit_row&table=<?=$table?>&row_id=<?=$row_id?>">💬</a>
+        </td>
     </tr>
     <?php
     }
