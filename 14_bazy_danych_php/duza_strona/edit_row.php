@@ -35,11 +35,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $result = $conn->query("UPDATE $table_escaped SET ".implode(", ", $values)." WHERE $id_column_name=".$escaped_id);
     if($result) {
 ?>
-        <span class="success">Pomyślnie dodano wiersz</span>
+        <span class="success">Pomyślnie edytowano wiersz</span>
 <?php
     } else {
 ?>
-        <span class="error">Błąd przy dodawaniu wiersza</span>
+        <span class="error">Błąd przy edytowaniu wiersza</span>
 <?php
     }
 }

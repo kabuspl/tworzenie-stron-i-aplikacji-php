@@ -46,7 +46,7 @@ Liczba wierszy: <?= $result->num_rows ?>
         }
         ?>
         <td>
-            <a href="?page=edit_row&table=<?=$table?>&row_id=<?=$row_id?>">💬</a>
+            <a href="?page=edit_row&table=<?=$table?>&row_id=<?=$row_id?>">✏️</a>
         </td>
     </tr>
     <?php
