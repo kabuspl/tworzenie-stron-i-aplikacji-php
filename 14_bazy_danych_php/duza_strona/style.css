@@ -36,10 +36,18 @@ h1 {
 .right {
     flex: 1;
 
-    padding: 20px;
-
     background-color: aliceblue;
     overflow: auto;
+}
+
+header {
+    background-color: lightblue;
+    padding: 15px;
+}
+
+main {
+    padding: 20px;
+
 }
 
 @media (max-width: 800px) {
